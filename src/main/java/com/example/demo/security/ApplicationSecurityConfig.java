@@ -74,7 +74,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     @Bean
-    public UserDetailsService userDetailsServiceBean() throws Exception {
+    protected UserDetailsService userDetailsService(){
         UserDetails annaSmithUser = User.builder()
                 .username("annasmith")
                 .password(passwordEncoder.encode("password123"))
