@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Date;
 
+
 public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
@@ -51,6 +52,7 @@ public class JwtUsernameAndPasswordAuthenticationFilter extends UsernamePassword
                                             FilterChain chain,
                                             Authentication authResult) throws IOException, ServletException {
         String key = "securesecuresecuresecuresecure";
+
         String token = Jwts.builder()
                 .setSubject(authResult.getName())
                 .claim("authorities", authResult.getAuthorities())
