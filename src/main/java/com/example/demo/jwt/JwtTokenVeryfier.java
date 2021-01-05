@@ -36,9 +36,9 @@ public class JwtTokenVeryfier extends OncePerRequestFilter {
 
             String secretKey = "securesecuresecuresecuresecure";
 
-            Jwt<Header, Claims> claimsJws = Jwts.parser()
+            Jws<Claims> claimsJws = Jwts.parser()
                     .setSigningKey(Keys.hmacShaKeyFor(secretKey.getBytes()))
-                    .parseClaimsJwt(token);
+                    .parseClaimsJws(token);
 
             Claims body = claimsJws.getBody();
             String username = body.getSubject();
